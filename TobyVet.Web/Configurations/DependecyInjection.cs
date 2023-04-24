@@ -1,4 +1,3 @@
-using Microsoft.Extensions.DependencyInjection;
 using TobyVet.Core.Settings;
 using TobyVet.Data;
 
