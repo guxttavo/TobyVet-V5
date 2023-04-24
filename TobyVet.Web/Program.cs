@@ -1,7 +1,15 @@
+using TobyVet.Core.Settings;
+using TobyVet.Web.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+IConfiguration configurations = builder.Configuration;
+
+var appSettings = configurations.Get<AppSettings>();
+
+builder.Services.AddDependencies(appSettings);
 builder.Services.AddControllersWithViews();
+
 
 var app = builder.Build();
 
