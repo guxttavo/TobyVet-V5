@@ -11,8 +11,6 @@ namespace TobyVet.Core.Services
         {
             _animalRepository = animalRepository;
         }
-
-
         public async Task<IEnumerable<Animal>> BuscarAnimaisService() => await _animalRepository.BuscarAnimais();
 
 
