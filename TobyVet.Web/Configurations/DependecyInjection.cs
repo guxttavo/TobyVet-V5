@@ -1,5 +1,7 @@
+using TobyVet.Core.Interfaces.Repositories;
 using TobyVet.Core.Settings;
 using TobyVet.Data;
+using TobyVet.Data.Repositories;
 
 namespace TobyVet.Web.Configurations
 {
@@ -13,6 +15,7 @@ namespace TobyVet.Web.Configurations
 
             services.AddScoped<ApplicationDbContext>();
 
+            services.AddScoped<IAnimalRepository, AnimalRepository>();
         }
 
     }
