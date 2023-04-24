@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-
-namespace TobyVet.Web.Controllers;
+﻿namespace TobyVet.Web.Controllers;
 
 public class HomeController : Controller
 {

@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using TobyVet.Core.Interfaces.Repositories;
-using TobyVet.Core.Models;
-
 namespace TobyVet.Data.Repositories
 {
     public class AnimalRepository : IAnimalRepository

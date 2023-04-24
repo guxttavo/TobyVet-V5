@@ -1,16 +1,18 @@
-using Microsoft.AspNetCore.Mvc;
-using TobyVet.Core.Services;
+using TobyVet.Core.Interfaces.Services;
 
 namespace TobyVet.Web.Controllers
 {
     public class AnimalController : Controller
     {
-        private readonly AnimalService _animalService;
+        private readonly IAnimalService _animalService;
 
-        public AnimalController(AnimalService animalService)
+        public AnimalController(IAnimalService animalService)
         {
             _animalService = animalService;
         }
+
+        public async Task<IActionResult> Index() => View(await _animalService.BuscarAnimaisService());
+
 
     }
 }

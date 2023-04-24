@@ -1,8 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TobyVet.Core.Models;
-
-namespace TobyVet.Data.Configuration.Application
+namespace TobyVet.Data.Configurations.Application
 {
     public class AnimalConfiguration : IEntityTypeConfiguration<Animal>
     {
