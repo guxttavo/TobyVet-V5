@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using TobyVet.Core.Models;
 using TobyVet.Core.Settings;
 
 namespace TobyVet.Data
@@ -7,5 +9,7 @@ namespace TobyVet.Data
         public ApplicationDbContext(AppSettings appSettings) : base(appSettings, "Application")
         {
         }
+
+        public DbSet<Animal> Animais { get; set; }
     }
 }

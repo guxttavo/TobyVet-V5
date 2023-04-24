@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TobyVet.Core.Interfaces.Repositories;
 using TobyVet.Core.Models;
 
@@ -11,9 +12,7 @@ namespace TobyVet.Data.Repositories
         {
             _dbContext = dbContext;
         }
-        public Task<IEnumerable<Animal>> BuscarAnimais()
-        {
-            throw new NotImplementedException();
-        }
+
+        public async Task<IEnumerable<Animal>> BuscarAnimais() => await _dbContext.Animais.ToListAsync();
     }
 }
