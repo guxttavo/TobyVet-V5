@@ -1,5 +1,5 @@
 using TobyVet.Core.Settings;
-using TobyVet.Web.Configuration;
+using TobyVet.Web.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 

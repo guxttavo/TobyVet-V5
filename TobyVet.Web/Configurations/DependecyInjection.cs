@@ -1,7 +1,7 @@
 using TobyVet.Core.Settings;
 using TobyVet.Data;
 
-namespace TobyVet.Web.Configuration
+namespace TobyVet.Web.Configurations
 {
     public static class DependecyInjection
     {
