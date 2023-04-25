@@ -1,6 +1,3 @@
-
-using TobyVet.Core.Interfaces.Services;
-
 namespace TobyVet.Web.Configurations
 {
     public static class DependecyInjection
@@ -13,9 +10,8 @@ namespace TobyVet.Web.Configurations
 
             services.AddScoped<ApplicationDbContext>();
 
-            services.AddScoped<IAnimalRepository, AnimalRepository>();
             services.AddScoped<IAnimalService, AnimalService>();
+            services.AddScoped<IAnimalRepository, AnimalRepository>();
         }
-
     }
 }
