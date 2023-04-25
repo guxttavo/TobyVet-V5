@@ -4,7 +4,7 @@ namespace TobyVet.Data.Configurations.Application
     {
         public void Configure(EntityTypeBuilder<Genero> builder)
         {
-            builder.ToTable("animal", "dbo");
+            builder.ToTable("genero", "dbo");
 
             builder.HasKey(x => x.Id).HasName("pk_Genero");
 
