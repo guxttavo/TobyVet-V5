@@ -6,7 +6,7 @@ namespace TobyVet.Data.Configurations.Application
         {
             builder.ToTable("especie", "dbo");
 
-            builder.HasKey(x => x.Id).HasName("pk_Especie");
+            builder.HasKey(x => x.Id).HasName("pk_especie");
 
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
             builder.Property(x => x.Nome).HasColumnName("nome");

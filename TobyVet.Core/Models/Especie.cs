@@ -4,6 +4,6 @@ namespace TobyVet.Core.Models
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-
+        public IEnumerable<Animal> Animais { get; set; }
     }
 }

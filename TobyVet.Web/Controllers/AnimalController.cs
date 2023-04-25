@@ -19,6 +19,5 @@ namespace TobyVet.Web.Controllers
         [HttpPost("cadastrar")]
         public async Task Cadastrar(Animal animal) => await _animalService.CadastrarAnimalService(animal);
 
-
     }
 }
