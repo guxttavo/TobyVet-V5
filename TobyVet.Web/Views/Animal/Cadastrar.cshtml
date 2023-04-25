@@ -5,28 +5,53 @@
         <div class="mb-3">
             <input asp-for="Nome" placeholder="Nome" type="text" class="form-control">
         </div>
-        @* <div class="mb-3">
-            <input asp-for="Responsavel" placeholder="Responsavel" type="text" class="form-control">
+        <div class="mb-3">
+            <input asp-for="Responsavel" placeholder="Responsável" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <input asp-for="Idade" placeholder="Idade" type="number" class="form-control">
-        </div> *@
-        @* <div class="dropdown">
-            <select asp-for="Sexo" class="form-select" name="" id="">
-                <option value="Macho">Macho</option>
-                <option value="Femea">Fêmea</option>
-            </select>
-            <select asp-for="Sexo" class="form-select" name="" id="">
-                <option value="Labrador Retriever">Labrador Retriever</option>
-                <option value="Pastor Alemão">Pastor Alemão</option>
-                <option value="Bulldog Francês">Bulldog Francês</option>
-                <option value="Beagle">Beagle</option>
-                <option value="Golden Retriever">Golden Retriever</option>
-                <option value="Poodle">Poodle</option>
-                <option value="Boxer">Boxer</option>
-                <option value="Chihuahua">Chihuahua</option>
-            </select>
-        </div> *@
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Cachorro
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Gato
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Macaco
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Macho
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault">
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Fêmea
+                </label>
+            </div>
+        </div>
+        <div class="mb-3">
+            <input asp-for="Peso" placeholder="Peso" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Altura" placeholder="Altura" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Cor" placeholder="Cor" type="text" class="form-control">
+        </div>
+
         <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 

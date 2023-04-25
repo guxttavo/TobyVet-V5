@@ -7,9 +7,17 @@ namespace TobyVet.Web.Controllers
         {
             _animalService = animalService;
         }
+
+        [HttpGet("listar")]
         public async Task<IActionResult> Listar() => View(await _animalService.BuscarAnimaisService());
 
-        public IActionResult Cadastrar() => View();
+        [HttpGet("cadastrar")]
+        public IActionResult Cadastrar() => View(
+
+        );
+
+        [HttpPost("cadastrar")]
+        public async Task Cadastrar(Animal animal) => await _animalService.CadastrarAnimalService(animal);
 
 
     }
