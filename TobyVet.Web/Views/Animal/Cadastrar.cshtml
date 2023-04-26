@@ -21,7 +21,6 @@
             <input asp-for="Animal.Cor" placeholder="Cor" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <label asp-for="Animal.IdEspecie" class="form-label"></label>
             <select asp-for="Animal.IdEspecie" asp-items="@(new SelectList(Model.Especies,"Id","Nome"))" class="form-select">
             </select>
         </div>
