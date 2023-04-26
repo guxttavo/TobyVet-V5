@@ -10,6 +10,8 @@ namespace TobyVet.Data.Configurations.Application
 
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
             builder.Property(x => x.Nome).HasColumnName("nome");
+
+            builder.HasMany(x => x.Animais).WithOne(x => x.Especie);
         }
     }
 }

@@ -1,12 +1,12 @@
-CREATE TABLE Especie (
+CREATE TABLE especie (
   id int GENERATED ALWAYS AS IDENTITY,
-  Nome VARCHAR(10) NOT NULL,
+  nome VARCHAR(10) NOT NULL,
   CONSTRAINT pk_especie PRIMARY KEY(id)
 );
 
-CREATE TABLE Animal (
+CREATE TABLE animal (
   id int GENERATED ALWAYS AS IDENTITY,
-  idEspecie INT NOT NULL,
+  id_especie INT NOT NULL,
   nome VARCHAR(60) NOT NULL,
   responsavel VARCHAR(60) NOT NULL,
   sexo VARCHAR(15) NOT NULL,
@@ -14,13 +14,13 @@ CREATE TABLE Animal (
   altura DECIMAL(5,1) NOT NULL,
   cor VARCHAR(30) NOT NULL,
   CONSTRAINT pk_animal PRIMARY KEY(id),
-  CONSTRAINT fk_idEspecie FOREIGN KEY(idEspecie) REFERENCES Especie(id)
+  CONSTRAINT fkid_especie FOREIGN KEY(id_especie) REFERENCES especie(id)
 );
 
 --INSERTS
 
-INSERT INTO Especie (Nome) VALUES ('Macaco'), ('Cachorro'),('Gato');
-INSERT INTO Animal (idEspecie, nome, responsavel, sexo, peso, altura, cor)
+INSERT INTO especie (nome) VALUES ('Macaco'), ('Cachorro'),('Gato');
+INSERT INTO animal (id_especie, nome, responsavel, sexo, peso, altura, cor)
               VALUES (1, 'Toby', 'João', 'Macho', 10.5, 70.2, 'Marrom'),
                      (2, 'Toby', 'Maria', 'Fêmea', 5.8, 40.5, 'Preto'),
                      (3, 'Toby', 'José', 'Macho', 8.2, 65.0, 'Branco'),

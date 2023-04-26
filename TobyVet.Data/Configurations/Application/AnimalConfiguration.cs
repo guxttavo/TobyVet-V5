@@ -9,15 +9,15 @@ namespace TobyVet.Data.Configurations.Application
             builder.HasKey(x => x.Id).HasName("pk_animal");
 
             builder.Property(x => x.Id).ValueGeneratedOnAdd().HasColumnName("id");
-            builder.Property(x => x.idEspecie).HasColumnName("idEspecie");
+            builder.Property(x => x.IdEspecie).HasColumnName("id_especie");
             builder.Property(x => x.Nome).HasColumnName("nome");
-            builder.Property(x => x.Sexo).HasColumnName("Sexo");
             builder.Property(x => x.Responsavel).HasColumnName("responsavel");
+            builder.Property(x => x.Sexo).HasColumnName("sexo");
             builder.Property(x => x.Peso).HasColumnName("peso");
             builder.Property(x => x.Altura).HasColumnName("altura");
             builder.Property(x => x.Cor).HasColumnName("cor");
 
-            builder.HasOne(x => x.Especie).WithMany(x => x.Animais);
+            builder.HasOne(x => x.Especie).WithMany(x => x.Animais).HasForeignKey(x => x.IdEspecie);
         }
     }
 }
