@@ -10,7 +10,6 @@ namespace TobyVet.Web.Configurations
 
             services.AddScoped<ApplicationDbContext>();
 
-            services.AddScoped<IAnimalService, AnimalService>();
             services.AddScoped<IAnimalRepository, AnimalRepository>();
         }
     }

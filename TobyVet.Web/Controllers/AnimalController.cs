@@ -2,14 +2,14 @@ namespace TobyVet.Web.Controllers
 {
     public class AnimalController : Controller
     {
-        private readonly IAnimalService _animalService;
-        public AnimalController(IAnimalService animalService)
+        private readonly IAnimalRepository _animalRepository;
+        public AnimalController(IAnimalRepository animalRepository)
         {
-            _animalService = animalService;
+            _animalRepository = animalRepository;
         }
 
         [HttpGet("listar")]
-        public async Task<IActionResult> Listar() => View(await _animalService.BuscarAnimaisService());
+        public async Task<IActionResult> Listar() => View(await _animalRepository.BuscarAnimais());
 
         [HttpGet("cadastrar")]
         public IActionResult Cadastrar() => View(
@@ -17,7 +17,7 @@ namespace TobyVet.Web.Controllers
         );
 
         [HttpPost("cadastrar")]
-        public async Task Cadastrar(Animal animal) => await _animalService.CadastrarAnimalService(animal);
+        public async Task Cadastrar(Animal animal) => await _animalRepository.CadastrarAnimal(animal);
 
     }
 }

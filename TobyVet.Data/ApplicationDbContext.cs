@@ -6,5 +6,6 @@ namespace TobyVet.Data
         {
         }
         public DbSet<Animal> Animais { get; set; }
+        public DbSet<Especie> Especies { get; set; }
     }
 }

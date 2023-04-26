@@ -14,7 +14,7 @@ CREATE TABLE animal (
   altura DECIMAL(5,1) NOT NULL,
   cor VARCHAR(30) NOT NULL,
   CONSTRAINT pk_animal PRIMARY KEY(id),
-  CONSTRAINT fkid_especie FOREIGN KEY(id_especie) REFERENCES especie(id)
+  CONSTRAINT fk_animal_especie FOREIGN KEY(id_especie) REFERENCES especie(id)
 );
 
 --INSERTS

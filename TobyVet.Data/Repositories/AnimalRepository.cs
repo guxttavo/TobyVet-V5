@@ -7,7 +7,13 @@ namespace TobyVet.Data.Repositories
         {
             _dbContext = dbContext;
         }
-        public async Task<IEnumerable<Animal>> BuscarAnimais() => await _dbContext.Animais.ToListAsync();
+        public async Task<IEnumerable<Animal>> BuscarAnimais()
+        {
+            return await _dbContext.Animais
+                .Include(x => x.Especie)
+                .ToListAsync();
+        }
+
 
         public async Task CadastrarAnimal(Animal animal)
         {
