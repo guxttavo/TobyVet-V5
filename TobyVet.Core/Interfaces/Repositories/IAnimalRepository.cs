@@ -4,6 +4,7 @@ namespace TobyVet.Core.Interfaces.Repositories
     {
         Task<IEnumerable<Animal>> BuscarAnimais();
         Task CadastrarAnimal(Animal animal);
+        Task<IEnumerable<Especie>> BuscarEspecies();
 
     }
 }

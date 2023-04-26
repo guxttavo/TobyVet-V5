@@ -13,12 +13,16 @@ namespace TobyVet.Data.Repositories
                 .Include(x => x.Especie)
                 .ToListAsync();
         }
-
-
         public async Task CadastrarAnimal(Animal animal)
         {
             await _dbContext.Animais.AddAsync(animal);
             await _dbContext.SaveChangesAsync();
+        }
+        public async Task<IEnumerable<Especie>> BuscarEspecies()
+        {
+            return await _dbContext.Especies
+                .OrderBy(x => x.Nome)
+                .ToListAsync();
         }
     }
 }
