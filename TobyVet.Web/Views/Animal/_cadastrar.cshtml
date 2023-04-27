@@ -1,6 +1,6 @@
 @model TobyVet.Web.ViewModels.EspecieViewModel
 
-<form method="post" action="">
+<form method="post" id="animalForm">
     <div class="cadastra-form">
         <div class="mb-3">
             <input asp-for="Animal.Nome" placeholder="Nome" type="text" class="form-control">
@@ -21,10 +21,12 @@
             <input asp-for="Animal.Cor" placeholder="Cor" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <select asp-for="Animal.IdEspecie" asp-items="@(new SelectList(Model.Especies,"Id","Nome"))" class="form-select">
+            <select asp-for="Animal.IdEspecie" asp-items="@(new SelectList(Model.Especies,"Id","Nome"))"
+                class="form-select">
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+        <button type="button" class="btn btn-primary" onclick="animal.cadastrarAnimal()">Enviar</button>
     </div>
 
 </form>
+

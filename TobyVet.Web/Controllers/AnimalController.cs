@@ -11,26 +11,30 @@ namespace TobyVet.Web.Controllers
             _animalRepository = animalRepository;
             _dbContext = dbContext;
         }
+        public async Task<ActionResult> Index() => View();
 
         [HttpGet("listar")]
-        public async Task<IActionResult> Listar() => View(await _animalRepository.BuscarAnimais());
+        public async Task<IActionResult> Listar() => View("_listar", await _animalRepository.BuscarAnimais());
 
         [HttpGet("cadastrar")]
         public async Task<IActionResult> Cadastrar()
         {
-            
-            var especies = await _animalRepository.BuscarEspecies();
-            var viewModel = new EspecieViewModel { Especies = especies };
-            Console.WriteLine(viewModel);
-            return View(viewModel);
+        var especies = await _animalRepository.BuscarEspecies();
+        var viewModel = new EspecieViewModel { Especies = especies };
+        Console.WriteLine(viewModel);
+        return View("_cadastrar", viewModel);
         }
 
-        // [HttpPost("cadastrar")]
-        // public async Task Cadastrar(Animal animal)
-        // {
-            
-        //     // await _animalRepository.CadastrarAnimal(animal);
-        // }
+        // [HttpGet("cadastrar")]
+        // public IActionResult Cadastrar() => View(, await _animalRepository.BuscarEspecies());
+
+        [HttpPost("cadastrar")]
+        public async Task<IActionResult> CadastrarView(Animal animal)
+        {
+
+            await _animalRepository.CadastrarAnimal(animal);
+            return RedirectToAction(nameof(Index));
+        }
 
     }
 }
