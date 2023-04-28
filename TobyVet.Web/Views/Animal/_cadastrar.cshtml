@@ -1,6 +1,6 @@
 @model TobyVet.Web.ViewModels.EspecieViewModel
 
-<form method="post" id="animalForm">
+<form id="animalForm">
     <div class="cadastra-form">
         <div class="mb-3">
             <input asp-for="Animal.Nome" placeholder="Nome" type="text" class="form-control">
@@ -30,3 +30,13 @@
 
 </form>
 
+<script src="~/js/Pages/animal.js" asp-append-version="true"></script>
+<script>
+    animal.init({
+        urls: {
+            listar: '@Url.Action("Listar", "Animal")',
+            mostrarViewCadastrar: '@Url.Action("Cadastrar", "Animal")',
+            cadastrar: '@Url.Action("cadastrar", "animal")',
+        }
+    });
+</script>

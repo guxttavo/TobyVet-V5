@@ -38,8 +38,13 @@ var animal = (function () {
         var model = $('#animalForm').serializeObject();
 
         if (!model.isEmpty) {
-            $.post(configs.urls.cadastrar, model).done(() => {
-            });
+            $.post(configs.urls.cadastrar, model).done(function (html) {
+                $(".container-lista").hide();
+                $(".container-cadastrar").html(html);
+                $(".container-cadastrar").show();
+            }).fail(function () {
+                console.log("deu ruim");
+            })
         }
     }
 
