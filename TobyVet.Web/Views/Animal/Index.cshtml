@@ -4,13 +4,3 @@
 <div class="container-lista"></div>
 <div class="container-cadastrar"></div>
 
-<script src="~/js/Pages/animal.js" asp-append-version="true"></script>
-<script>
-    animal.init({
-        urls: {
-            listar: '@Url.Action("Listar", "Animal")',
-            mostrarViewCadastrar: '@Url.Action("Cadastrar", "Animal")',
-            cadastrar: '@Url.Action("cadastrar", "animal")',
-        }
-    });
-</script>

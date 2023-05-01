@@ -23,7 +23,7 @@ var animal = (function () {
             console.log("deu ruim");
         })
     };
-
+    //responsável apenas pela troca e páginas
     var mostrarViewCadastrar = function () {
         $.get(configs.urls.mostrarViewCadastrar).done(function (html) {
             $(".container-lista").hide();
@@ -39,9 +39,9 @@ var animal = (function () {
 
         if (!model.isEmpty) {
             $.post(configs.urls.cadastrar, model).done(function (html) {
-                $(".container-lista").hide();
-                $(".container-cadastrar").html(html);
-                $(".container-cadastrar").show();
+                $(".container-cadastrar").hide();
+                $(".container-lista").html(html);
+                $(".container-lista").show();
             }).fail(function () {
                 console.log("deu ruim");
             })
