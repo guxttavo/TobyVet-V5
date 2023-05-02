@@ -5,7 +5,7 @@ var animal = (function () {
             cadastrar: "",
             listar: "",
             mostrarViewCadastrar: "",
-            editar: ""
+            mostrarViewEditar: ""
         },
     };
 
@@ -16,8 +16,12 @@ var animal = (function () {
     // var containerLista = $('.container-lista');
 
     var mostrarViewEditar = function () {
-        $.get(configs.urls.editar).done(function () {
-            location.href = configs.urls.editar
+        $.get(configs.urls.mostrarViewEditar).done(function (html) {
+            $(".container-lista").hide();
+            $(".container-editar").html(html);
+            $(".container-editar").show();
+        }).fail(function () {
+            console.log("deu ruim");
         })
     }
 
