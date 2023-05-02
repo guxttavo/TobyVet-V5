@@ -5,6 +5,7 @@ var animal = (function () {
             cadastrar: "",
             listar: "",
             mostrarViewCadastrar: "",
+            editar: ""
         },
     };
 
@@ -13,6 +14,12 @@ var animal = (function () {
     };
 
     // var containerLista = $('.container-lista');
+
+    var mostrarViewEditar = function () {
+        $.get(configs.urls.editar).done(function () {
+            location.href = configs.urls.editar
+        })
+    }
 
     var listar = function () {
         $.get(configs.urls.listar).done(function (html) {
@@ -38,10 +45,8 @@ var animal = (function () {
         var model = $('#animalForm').serializeObject();
 
         if (!model.isEmpty) {
-            $.post(configs.urls.cadastrar, model).done(function (html) {
-                $(".container-cadastrar").hide();
-                $(".container-lista").html(html);
-                $(".container-lista").show();
+            $.post(configs.urls.cadastrar, model).done(function () {
+                location.href = configs.urls.listar
             }).fail(function () {
                 console.log("deu ruim");
             })
@@ -52,6 +57,7 @@ var animal = (function () {
         init: init,
         cadastrarAnimal: cadastrarAnimal,
         listar: listar,
-        mostrarViewCadastrar: mostrarViewCadastrar
+        mostrarViewCadastrar: mostrarViewCadastrar,
+        mostrarViewEditar: mostrarViewEditar
     };
 })()

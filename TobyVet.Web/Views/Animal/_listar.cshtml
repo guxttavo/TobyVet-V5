@@ -1,5 +1,9 @@
 @model IEnumerable<Animal>
 
+@{
+  Layout = null;
+}
+
 <table class="table">
   <thead>
     <tr>
@@ -26,7 +30,7 @@
         <td>@item.Altura</td>
         <td>@item.Cor</td>
         <td>
-          <button type="button" class="btn btn-sm btn-primary">
+          <button type="button" class="btn btn-sm btn-primary" onclick="animal.editar()">
             Editar
           </button>
           <button type="button" class="btn btn-sm btn-danger">

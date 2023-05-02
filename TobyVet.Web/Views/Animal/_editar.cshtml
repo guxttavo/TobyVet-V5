@@ -1,0 +1,32 @@
+@{
+    Layout = null;
+}
+<form id="">
+    <div class="cadastra-form">
+        <div class="mb-3">
+            <input placeholder="Nome" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input placeholder="Responsável" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input  placeholder="Sexo" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input  placeholder="Peso" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input  placeholder="Altura" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input  placeholder="Cor" type="text" class="form-control">
+        </div>
+        @* <div class="mb-3">
+            <select asp-for="Animal.IdEspecie" asp-items="@(new SelectList(Model.Especies,"Id","Nome"))"
+                class="form-select">
+            </select>
+        </div> *@
+        <button type="button" class="btn btn-primary" onclick="animal.cadastrarAnimal()">Enviar</button>
+    </div>
+
+</form>

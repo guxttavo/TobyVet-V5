@@ -1,5 +1,8 @@
 @model TobyVet.Web.ViewModels.EspecieViewModel
 
+@{
+    Layout = null;
+}
 <form id="animalForm">
     <div class="cadastra-form">
         <div class="mb-3">
@@ -30,14 +33,3 @@
 
 </form>
 
-@* faz mais sentido esse codigo estar dentro do index *@
-<script src="~/js/Pages/animal.js" asp-append-version="true"></script>
-<script>
-    animal.init({
-        urls: {
-            listar: '@Url.Action("Listar", "Animal")',
-            mostrarViewCadastrar: '@Url.Action("Cadastrar", "Animal")',
-            cadastrar: '@Url.Action("cadastrar", "animal")',
-        }
-    });
-</script>
