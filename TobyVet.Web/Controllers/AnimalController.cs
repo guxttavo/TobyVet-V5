@@ -16,7 +16,14 @@ namespace TobyVet.Web.Controllers
         public async Task<IActionResult> Listar() => View("_listar", await _animalRepository.BuscarAnimais());
 
         [HttpGet("editar")]
-        public IActionResult Editar() => View("_editar");
+        public async Task<IActionResult> Editar(int id)
+        {
+            Console.WriteLine(id);
+            var animalSelecionado = await _animalRepository.BuscarAnimal(id);
+            Console.WriteLine(animalSelecionado.Nome);
+
+            return View("_editar", animalSelecionado);
+        }
 
         [HttpGet("cadastrar")]
         public async Task<IActionResult> Cadastrar()

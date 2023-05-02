@@ -15,9 +15,11 @@ var animal = (function () {
 
     // var containerLista = $('.container-lista');
 
-    var mostrarViewEditar = function () {
-        $.get(configs.urls.mostrarViewEditar).done(function (html) {
+    var mostrarViewEditar = function (id) {
+        console.log(id);
+        $.get(configs.urls.mostrarViewEditar, { id: id }).done(function (html) {
             $(".container-lista").hide();
+            $(".buttons").hide();
             $(".container-editar").html(html);
             $(".container-editar").show();
         }).fail(function () {
