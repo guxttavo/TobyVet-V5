@@ -1,11 +1,11 @@
 var animal = (function () {
     var configs = {
         urls: {
-            index: "",
             cadastrar: "",
-            listar: "",
-            mostrarViewCadastrar: "",
-            mostrarViewEditar: ""
+            viewCadastrar: "",
+            editar: "",
+            viewEditar: "",
+            listar: ""
         },
     };
 
@@ -13,41 +13,7 @@ var animal = (function () {
         configs = $configs;
     };
 
-    // var containerLista = $('.container-lista');
-
-    var mostrarViewEditar = function (id) {
-        console.log(id);
-        $.get(configs.urls.mostrarViewEditar, { id: id }).done(function (html) {
-            $(".container-lista").hide();
-            $(".buttons").hide();
-            $(".container-editar").html(html);
-            $(".container-editar").show();
-        }).fail(function () {
-            console.log("deu ruim");
-        })
-    }
-
-    var listar = function () {
-        $.get(configs.urls.listar).done(function (html) {
-            $(".container-cadastrar").hide();
-            $(".container-lista").html(html);
-            $(".container-lista").show();
-        }).fail(function () {
-            console.log("deu ruim");
-        })
-    };
-    //responsável apenas pela troca e páginas
-    var mostrarViewCadastrar = function () {
-        $.get(configs.urls.mostrarViewCadastrar).done(function (html) {
-            $(".container-lista").hide();
-            $(".container-cadastrar").html(html);
-            $(".container-cadastrar").show();
-        }).fail(function () {
-            console.log("deu ruim");
-        })
-    }
-
-    var cadastrarAnimal = () => {
+    var cadastrar = () => {
         var model = $('#animalForm').serializeObject();
 
         if (!model.isEmpty) {
@@ -59,11 +25,54 @@ var animal = (function () {
         }
     }
 
+    var viewCadastrar = function () {
+        $.get(configs.urls.viewCadastrar).done(function (html) {
+            $(".container-lista").hide();
+            $(".container-cadastrar").html(html);
+            $(".container-cadastrar").show();
+        }).fail(function () {
+            console.log("deu ruim");
+        })
+    }
+
+    var editar = function () {
+        var model = $("#formEditar").serializeObject();
+        $.post(configs.urls.viewEditar, model).done(() => {
+            location.href = (configs.urls.listar)
+        }).fail(function () {
+            console.log("deu ruim");
+        })
+    }
+
+    var viewEditar = function (id) {
+        console.log(id);
+        $.get(configs.urls.viewEditar, { id: id }).done(function (html) {
+            $(".container-lista").hide();
+            $(".buttons").hide();
+            $(".container-editar").html(html);
+            $(".container-editar").show();
+        }).fail(function () {
+            console.log("deu ruim");
+        })
+    }
+
+    // var containerLista = $('.container-lista');
+    var listar = function () {
+        $.get(configs.urls.listar).done(function (html) {
+            $(".container-cadastrar").hide();
+            $(".container-lista").html(html);
+            $(".container-lista").show();
+        }).fail(function () {
+            console.log("deu ruim");
+        })
+    };
+
     return {
         init: init,
-        cadastrarAnimal: cadastrarAnimal,
-        listar: listar,
-        mostrarViewCadastrar: mostrarViewCadastrar,
-        mostrarViewEditar: mostrarViewEditar
+        cadastrar: cadastrar,
+        viewCadastrar: viewCadastrar,
+        editar: editar,
+        viewEditar: viewEditar,
+        listar: listar
     };
 })()

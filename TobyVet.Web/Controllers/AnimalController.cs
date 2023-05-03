@@ -18,11 +18,17 @@ namespace TobyVet.Web.Controllers
         [HttpGet("editar")]
         public async Task<IActionResult> Editar(int id)
         {
-            Console.WriteLine(id);
             var animalSelecionado = await _animalRepository.BuscarAnimal(id);
             Console.WriteLine(animalSelecionado.Nome);
 
             return View("_editar", animalSelecionado);
+        }
+
+        [HttpPost("editar")]
+        public async Task<IActionResult> EditarAnimal(Animal animal)
+        {
+            await _animalRepository.EditarAnimal(animal);
+            return Ok();
         }
 
         [HttpGet("cadastrar")]

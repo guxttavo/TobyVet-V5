@@ -29,5 +29,12 @@ namespace TobyVet.Data.Repositories
                 .OrderBy(x => x.Nome)
                 .ToListAsync();
         }
+        public async Task EditarAnimal(Animal animal)
+        {
+            _dbContext.Animais
+                    .Update(animal);
+            await _dbContext.SaveChangesAsync();
+
+        }
     }
 }
