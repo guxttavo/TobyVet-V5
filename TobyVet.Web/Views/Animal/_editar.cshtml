@@ -3,31 +3,32 @@
 @{
     Layout = null;
 }
-<form id="">
-    <div class="formEditar">
+<form id="formEditar">
+    <div>
         <div class="mb-3">
-            <input placeholder="Nome" value="@Model.Nome" type="text" class="form-control">
+            <input placeholder="Nome" asp-for="@Model.Nome" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <input placeholder="Responsável" value="@Model.Responsavel" type="text" class="form-control">
+            <input placeholder="Responsável" asp-for="@Model.Responsavel" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <input placeholder="Sexo" value="@Model.Sexo" type="text" class="form-control">
+            <input placeholder="Sexo" asp-for="@Model.Sexo" type="text" class="form-control">
         </div>
         <div class="mb-3">
-            <input placeholder="Peso" value="@Model.Peso" type="number" class="form-control">
+            <input placeholder="Peso" asp-for="@Model.Peso" type="number" class="form-control">
         </div>
         <div class="mb-3">
-            <input placeholder="Altura" value="@Model.Altura" type="number" class="form-control">
+            <input placeholder="Altura" asp-for="@Model.Altura" type="number" class="form-control">
         </div>
         <div class="mb-3">
-            <input placeholder="Cor" value="@Model.Cor" type="text" class="form-control">
+            <input placeholder="Cor" asp-for="@Model.Cor" type="text" class="form-control">
         </div>
-        @* <div class="mb-3">
-        <select asp-for="Animal.IdEspecie" asp-items="@(new SelectList(Model.Especies,"Id","Nome"))"
-        class="form-select">
-        </select>
-        </div> *@
+        <div class="mb-3">
+            <input type="hidden" asp-for="@Model.Id">
+        </div>
+        <div class="mb-3">
+            <input type="hidden" asp-for="@Model.IdEspecie">
+        </div>
         <button type="button" class="btn btn-primary" onclick="animal.editar()">Enviar</button>
     </div>
 

@@ -36,5 +36,14 @@ namespace TobyVet.Data.Repositories
             await _dbContext.SaveChangesAsync();
 
         }
+        public async Task ExcluirAnimal(int id)
+        {
+            var animal = await _dbContext.Animais.FirstOrDefaultAsync(x => x.Id == id);
+            if (animal != null)
+            {
+                _dbContext.Animais.Remove(animal);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace TobyVet.Core.Interfaces.Repositories
         Task EditarAnimal(Animal animal);
         Task<IEnumerable<Especie>> BuscarEspecies();
         Task<Animal> BuscarAnimal(int id);
+        Task ExcluirAnimal(int id);
 
     }
 }

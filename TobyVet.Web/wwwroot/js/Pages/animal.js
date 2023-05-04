@@ -5,7 +5,9 @@ var animal = (function () {
             viewCadastrar: "",
             editar: "",
             viewEditar: "",
-            listar: ""
+            index: "",
+            listar: "",
+            excluir: ""
         },
     };
 
@@ -20,7 +22,6 @@ var animal = (function () {
             $.post(configs.urls.cadastrar, model).done(function () {
                 location.href = configs.urls.listar
             }).fail(function () {
-                console.log("deu ruim");
             })
         }
     }
@@ -31,28 +32,26 @@ var animal = (function () {
             $(".container-cadastrar").html(html);
             $(".container-cadastrar").show();
         }).fail(function () {
-            console.log("deu ruim");
         })
     }
 
     var editar = function () {
         var model = $("#formEditar").serializeObject();
-        $.post(configs.urls.viewEditar, model).done(() => {
-            location.href = (configs.urls.listar)
+        console.log(model);
+        $.post(configs.urls.editar, model).done(() => {
+            location.href = configs.urls.index
         }).fail(function () {
             console.log("deu ruim");
         })
     }
 
     var viewEditar = function (id) {
-        console.log(id);
         $.get(configs.urls.viewEditar, { id: id }).done(function (html) {
             $(".container-lista").hide();
             $(".buttons").hide();
             $(".container-editar").html(html);
             $(".container-editar").show();
         }).fail(function () {
-            console.log("deu ruim");
         })
     }
 
@@ -63,9 +62,16 @@ var animal = (function () {
             $(".container-lista").html(html);
             $(".container-lista").show();
         }).fail(function () {
-            console.log("deu ruim");
         })
     };
+
+    var excluir = function (id) {
+        var model = {Id: id};
+        $.post(configs.urls.excluir, model).done(() => {
+            listar();
+        }).fail(function () {
+        })
+    }
 
     return {
         init: init,
@@ -73,6 +79,7 @@ var animal = (function () {
         viewCadastrar: viewCadastrar,
         editar: editar,
         viewEditar: viewEditar,
-        listar: listar
+        listar: listar,
+        excluir: excluir
     };
 })()

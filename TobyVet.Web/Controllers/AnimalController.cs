@@ -19,7 +19,6 @@ namespace TobyVet.Web.Controllers
         public async Task<IActionResult> Editar(int id)
         {
             var animalSelecionado = await _animalRepository.BuscarAnimal(id);
-            Console.WriteLine(animalSelecionado.Nome);
 
             return View("_editar", animalSelecionado);
         }
@@ -47,5 +46,11 @@ namespace TobyVet.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost("excluir")]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            await _animalRepository.ExcluirAnimal(id);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
